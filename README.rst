@@ -20,4 +20,4 @@ example:
     data = conn.query("<your AQL query here>")
 
 Data will always be returned as a list of dictionaries with any errors during the query 
-being raised. For more information on AQL queries, head `Here<https://ceresdb.readthedocs.io/en/latest/querying.html>`_
+being raised. For more information on AQL queries, head `Here <https://ceresdb.readthedocs.io/en/latest/querying.html>`_
