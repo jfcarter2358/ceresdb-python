@@ -3,16 +3,16 @@ from ceresdb_python import Connection
 import json
 import pytest
 
-CERES_USERNAME="ceres"
-CERES_PASSWORD="ceres"
-CERES_HOST="localhost"
-CERES_PORT=7437
+CERESDB_USERNAME="ceres"
+CERESDB_PASSWORD="ceres"
+CERESDB_HOST="localhost"
+CERESDB_PORT=7437
 
 def test_version():
     assert __version__ == '0.1.0'
 
 def test_database():
-    conn = Connection(CERES_USERNAME, CERES_PASSWORD, CERES_HOST, CERES_PORT)
+    conn = Connection(CERESDB_USERNAME, CERESDB_PASSWORD, CERESDB_HOST, CERESDB_PORT)
     # Delete resources
     conn.query("delete database foo")
 
@@ -41,7 +41,7 @@ def test_database():
     assert data == expected_data
 
 def test_collection():
-    conn = Connection(CERES_USERNAME, CERES_PASSWORD, CERES_HOST, CERES_PORT)
+    conn = Connection(CERESDB_USERNAME, CERESDB_PASSWORD, CERESDB_HOST, CERESDB_PORT)
     # Delete resources
     conn.query("delete database foo")
     # Create resources
@@ -87,7 +87,7 @@ def test_collection():
     conn.query("delete database foo")
 
 def test_record():
-    conn = Connection(CERES_USERNAME, CERES_PASSWORD, CERES_HOST, CERES_PORT)
+    conn = Connection(CERESDB_USERNAME, CERESDB_PASSWORD, CERESDB_HOST, CERESDB_PORT)
     # Delete resources
     conn.query("delete database foo")
     # Create resources
@@ -152,7 +152,7 @@ def test_record():
     conn.query("delete database foo")
 
 def test_permit():
-    conn = Connection(CERES_USERNAME, CERES_PASSWORD, CERES_HOST, CERES_PORT)
+    conn = Connection(CERESDB_USERNAME, CERESDB_PASSWORD, CERESDB_HOST, CERESDB_PORT)
     # Delete resources
     conn.query("delete database foo")
     # Create resources
@@ -181,7 +181,7 @@ def test_permit():
     # Verify permission check
     with pytest.raises(Exception):
         input_data = {'role':'STRING','username':'STRING'}
-        conn_readonly = Connection("readonly", "readonly", CERES_HOST, CERES_PORT)
+        conn_readonly = Connection("readonly", "readonly", CERESDB_HOST, CERESDB_PORT)
         conn_readonly.query(f"post collection foo.bar {json.dumps(input_data)}")
 
     # Put permit
@@ -209,7 +209,7 @@ def test_permit():
     conn.query("delete database foo")
 
 def test_user():
-    conn = Connection(CERES_USERNAME, CERES_PASSWORD, CERES_HOST, CERES_PORT)
+    conn = Connection(CERESDB_USERNAME, CERESDB_PASSWORD, CERESDB_HOST, CERESDB_PORT)
     # Delete resources
     input_data = [datum[".id"] for datum in conn.query("get user .id | filter username != \"ceres\"")]
     conn.query(f"delete user {json.dumps(input_data)}")
@@ -236,7 +236,7 @@ def test_user():
     # Verify permission check
     with pytest.raises(Exception):
         input_data = {'role':'STRING','username':'STRING'}
-        conn_readonly = Connection("readonly", "readonly", CERES_HOST, CERES_PORT)
+        conn_readonly = Connection("readonly", "readonly", CERESDB_HOST, CERESDB_PORT)
         conn_readonly.query(f"post collection foo.bar {json.dumps(input_data)}")
 
     # Put user
