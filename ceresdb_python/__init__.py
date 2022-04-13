@@ -39,7 +39,6 @@ class Connection:
         # Grab any other packets if there's more data
         output_string += data.decode(ENCODING)
         while not data.decode(ENCODING).endswith(DATA_TERMINATOR):
-            print('getting more data!')
             data = s.recv(PACKET_SIZE)
             output_string += data.decode(ENCODING)
 
