@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ceresdb-python"
-version = "1.0.0"
+version = "1.0.1"
 description = ""
 authors = ["John Carter <john.carter@leapyear.io>"]
 

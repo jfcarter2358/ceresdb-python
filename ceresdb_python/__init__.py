@@ -6,7 +6,7 @@ import time
 PACKET_SIZE=65536
 DATA_TERMINATOR='EOD'
 ENCODING='utf-8'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 class Connection:
     def __init__(self, username: str, password: str, host: str, port: int) -> None:
