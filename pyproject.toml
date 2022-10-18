@@ -1,11 +1,12 @@
 [tool.poetry]
 name = "ceresdb-python"
-version = "1.0.1"
+version = "1.1.0"
 description = ""
 authors = ["John Carter <john.carter@leapyear.io>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+requests = "^2.28.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.1"

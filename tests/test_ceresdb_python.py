@@ -9,7 +9,7 @@ CERESDB_HOST="localhost"
 CERESDB_PORT=7437
 
 def test_version():
-    assert __version__ == '1.0.1'
+    assert __version__ == '1.1.0'
 
 def test_database():
     conn = Connection(CERESDB_USERNAME, CERESDB_PASSWORD, CERESDB_HOST, CERESDB_PORT)
